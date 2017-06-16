@@ -1,0 +1,740 @@
+body {
+    background-image: -webkit-repeating-radial-gradient(center center, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2) 1px, transparent 1px, transparent 100%);
+    background-image: -moz-repeating-radial-gradient(center center, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2) 1px, transparent 1px, transparent 100%);
+    background-image: -ms-repeating-radial-gradient(center center, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2) 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient(center center, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2) 1px, transparent 1px, transparent 100%);
+    -webkit-background-size: 3px 3px;
+    -moz-background-size: 3px 3px;
+    background-size: 20px 20px;
+    /*font-family: sans-serif;
+    word-spacing: 0.3em;
+    letter-spacing: .004em;*/
+}
+
+a {
+    color: rgb(39, 138, 148);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+p,
+li {
+    color: #373737;
+}
+
+.pure-img-responsive {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/*
+Add transition to containers so they can push in and out.
+*/
+
+#layout,
+#menu,
+.menu-link {
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -ms-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+}
+
+
+/*
+This is the parent `<div>` that contains the menu and the content area.
+*/
+
+#layout {
+    position: relative;
+    left: 0;
+    padding-left: 0;
+}
+
+#layout.active #menu {
+    left: 150px;
+    width: 150px;
+}
+
+#layout.active .menu-link {
+    left: 150px;
+}
+
+
+/*
+The content `<div>` is where all your content goes.
+*/
+
+#main {
+    max-width: 600px;
+    margin: 0 auto;
+    padding-bottom: 1em;
+    background: white;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 2em;
+}
+
+
+/* window BEGIN */
+
+span {
+    line-height: 9px;
+    vertical-align: 50%;
+}
+
+.titlebar {
+    margin: 1em auto 0;
+    max-width: 600px;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.0, #ebebeb, color-stop(1.0, #d5d5d5)));
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.6), rgba(21, 60, 64, 0.17));
+    background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.6), rgba(21, 60, 64, 0.17));
+    background: -ms-linear-gradient(top, rgba(255, 255, 255, 0.6), rgba(21, 60, 64, 0.17));
+    background: -o-linear-gradient(top, rgba(255, 255, 255, 0.6), rgba(21, 60, 64, 0.17));
+    background: linear-gradient(top, rgba(255, 255, 255, 0.6), rgba(21, 60, 64, 0.17));
+    color: #4d494d;
+    font-size: 11pt;
+    line-height: 20px;
+    width: 100%;
+    height: 20px;
+    border-top: 1px solid #f3f1f3;
+    border-bottom: 1px solid #b1aeb1;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    cursor: default;
+}
+
+.titlebar {
+    text-align: center;
+}
+
+.buttons {
+    opacity: 1;
+    padding-left: 8px;
+    padding-top: 3px;
+    float: left;
+    line-height: 0px;
+}
+
+.buttons:hover a {
+    visibility: visible;
+    text-decoration: none;
+}
+
+.close:hover,
+.minimize:hover,
+.zoom:hover {
+    box-shadow: inset 0px 0px 5px #fff;
+}
+
+.close {
+    background: #ff5c5c;
+    font-size: 9pt;
+    width: 11px;
+    height: 11px;
+    border: 1px solid #e33e41;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.close:active {
+    background: #c14645;
+    border: 1px solid #b03537;
+}
+
+.close:active .closebutton {
+    color: #4e0002;
+}
+
+.closebutton {
+    color: #820005;
+    visibility: hidden;
+    cursor: default;
+}
+
+.minimize {
+    background: #ffbd4c;
+    font-size: 9pt;
+    line-height: 11px;
+    margin-left: 4px;
+    width: 11px;
+    height: 11px;
+    border: 1px solid #e09e3e;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.minimize:active {
+    background: #c08e38;
+    border: 1px solid #af7c33;
+}
+
+.minimize:active .minimizebutton {
+    color: #5a2607;
+}
+
+.minimizebutton {
+    color: #9a5518;
+    visibility: hidden;
+    cursor: default;
+}
+
+.zoom {
+    background: #00ca56;
+    font-size: 9pt;
+    line-height: 11px;
+    margin-left: 6px;
+    width: 11px;
+    height: 11px;
+    border: 1px solid #14ae46;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.zoom:active {
+    background: #029740;
+    border: 1px solid #128435;
+}
+
+.zoom:active .zoombutton {
+    color: #003107;
+}
+
+.zoombutton {
+    color: #006519;
+    visibility: hidden;
+    cursor: default;
+}
+
+.cursor {
+    /* cursor animation in title bar*/
+    font-family: monospace;
+}
+
+.cursor:after {
+    content: "_";
+    opacity: 0;
+    animation: cursor 1s infinite;
+}
+
+@keyframes cursor {
+    0% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+
+/* Window title end*/
+
+.content {
+    margin: 0 auto;
+    padding: 0 1em 0 3em;
+    max-width: 600px;
+    line-height: 1.6em;
+}
+
+.technology-stack {
+    text-align: center;
+    width: 100%;
+}
+
+.technology-stack .pure-img {
+    display: inline-block;
+    max-width: 20%;
+    box-shadow: 5px;
+}
+
+.header::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.header {
+    padding: 2.5em 2em 0 3em;
+    border-bottom: 1px solid #eee;    
+}
+
+.header h1 {
+    color: #333;
+    margin: 0.2em 0;
+    font-weight: 300;
+}
+
+.header h2 {
+    font-weight: 300;
+    color: #7f7e7e;
+    padding: 0;
+    margin-top: 0;
+}
+
+.photo {
+    float: left;
+    width: 20%;
+    border-radius: 4px;
+    margin-right: 1em;
+}
+
+
+.content-subhead {
+    margin: 50px 0 20px 0;
+    font-weight: 300;
+    color: #888;
+}
+
+
+/* buttons */
+
+.nav-item {
+    text-align: center;
+    zoom: 1;
+    margin: 2em auto;
+
+}
+
+.nav-item a {
+    background: transparent;
+    border: 2px solid rgb(176, 202, 219);
+    letter-spacing: 0.05em;
+    font-size: 85%;
+}
+
+.nav-item a:hover,
+.nav-item a:focus {
+    border: 2px solid rgb(61, 146, 201);
+    text-decoration: none;
+    background: transparent;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+/*
+The `#menu` `<div>` is the parent `<div>` that contains the `.pure-menu` that
+appears on the left side of the page.
+*/
+
+#menu {
+    margin-left: -150px;
+    /* "#menu" width */
+    width: 150px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1000;
+    /* so the menu or its navicon stays above all content */
+    background: #153c40;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.55), 0 17px 50px 0 rgba(0, 0, 0, 0.99);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    background-image: -webkit-repeating-linear-gradient(135deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3) 1px, transparent 2px, transparent 2px, rgba(0, 0, 0, .3) 3px);
+    background-image: -moz-repeating-linear-gradient(135deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3) 1px, transparent 2px, transparent 2px, rgba(0, 0, 0, .3) 3px);
+    background-image: -o-repeating-linear-gradient(135deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3) 1px, transparent 2px, transparent 2px, rgba(0, 0, 0, .3) 3px);
+    background-image: repeating-linear-gradient(135deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3) 1px, transparent 2px, transparent 2px, rgba(0, 0, 0, .3) 3px);
+    -webkit-background-size: 4px 4px;
+    -moz-background-size: 4px 4px;
+    background-size: 4px 4px;
+}
+
+
+/*
+    All anchors inside the menu should be styled like this.
+    */
+
+#menu a {
+    color: #999;
+    border: none;
+    padding: 0.6em 0 0.6em 0.6em;
+}
+
+#menu .pure-menu-link {
+    color: rgba(255, 255, 255, 0.80);
+}
+
+
+/*
+    Remove all background/borders, since we are applying them to #menu.
+    */
+
+#menu .pure-menu,
+#menu .pure-menu ul {
+    border: none;
+    background: transparent;
+}
+
+
+/*
+    Add that light border to separate items into groups.
+    */
+
+#menu .pure-menu ul,
+#menu .pure-menu .menu-item-divided {
+    border-top: 1px solid #333;
+}
+
+
+/*
+        Change color of the anchor links on hover/focus.
+        */
+
+#menu .pure-menu li a:hover,
+#menu .pure-menu li a:focus {
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+}
+
+
+/*
+    This styles the selected menu item `<li>`.
+    */
+
+#menu .pure-menu-selected,
+#menu .pure-menu-heading {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+
+/*
+        This styles a link within a selected menu item `<li>`.
+        */
+
+#menu .pure-menu-selected a {
+    color: #fff;
+}
+
+
+/*
+    This styles the menu heading.
+    */
+
+#menu .pure-menu-heading {
+    font-size: 110%;
+    color: #fff;
+    margin: 0;
+    text-align: center;
+}
+
+#menu .pure-menu ul {
+    border-top: none;
+    margin-top: 1.5em;
+}
+
+.contact-menu {}
+
+.contact-menu .fa {
+    margin-right: 0.5em;
+}
+
+.contact-menu .fa-files-o {
+    float: right;
+}
+
+.contact-menu .fa-files-o:hover {
+    padding: 0.1em;
+}
+
+
+/*
+`.menu-link` represents the responsive menu toggle that shows/hides on
+small screens.
+*/
+
+.menu-link {
+    position: fixed;
+    display: block;
+    /* show this only on small screens */
+    top: 0;
+    left: 0;
+    /* "#menu width" */
+    /*background: #000;
+    background: #;     uncomment to enable icon bacground*/
+    font-size: 10px;
+    /* change this value to increase/decrease button size */
+    z-index: 10;
+    width: 2em;
+    height: auto;
+    padding: 2.1em 1.6em;
+}
+
+.menu-link:hover,
+.menu-link:focus {
+    /*background: #153c40; */
+}
+
+.menu-link span {
+    position: relative;
+    display: block;
+}
+
+.menu-link span,
+.menu-link span:before,
+.menu-link span:after {
+    background-color: #333;
+    width: 100%;
+    height: 0.2em;
+}
+
+.menu-link span:before,
+.menu-link span:after {
+    position: absolute;
+    margin-top: -0.6em;
+    content: " ";
+}
+
+.menu-link span:after {
+    margin-top: 0.6em;
+}
+
+
+/* Progress bars for check page */
+
+#myProgress{
+    margin-bottom: 2em;
+}
+
+.bar {
+    font-size: 1rem;
+    width: 100%;
+    min-width: 5%;
+    height: 30px;
+    color: white;
+    border: 3px solid #153c40;
+    border-radius: 3px;
+    background-image: -webkit-repeating-linear-gradient(135deg, rgb(255, 255, 255), rgb(255, 255, 255) 1px, transparent 2px, transparent 2px, rgba(15, 45, 48, 0.08) 3px);
+    background-image: -moz-repeating-linear-gradient(135deg, rgb(255, 255, 255), rgb(255, 255, 255) 1px, transparent 2px, transparent 2px, rgba(15, 45, 48, 0.08) 3px);
+    background-image: -o-repeating-linear-gradient(135deg, rgb(255, 255, 255), rgb(255, 255, 255) 1px, transparent 2px, transparent 2px, rgba(15, 45, 48, 0.08) 3px);
+    background-image: repeating-linear-gradient(135deg, rgb(255, 255, 255), rgb(255, 255, 255) 1px, transparent 2px, transparent 2px, rgba(15, 45, 48, 0.08) 3px);
+    -webkit-background-size: 4px 4px;
+    -moz-background-size: 4px 4px;
+    background-size: 4px 4px;
+}
+
+.myBar {
+    font-size: 1rem;
+    width: 5%;
+    min-width: 5%;
+    height: 30px;
+    background-color: #153c40;
+    text-align: center;
+    /* To center it horizontally (if you want) */
+    line-height: 30px;
+    /* To center it vertically */
+    background-image: -webkit-repeating-linear-gradient(135deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3) 1px, transparent 2px, transparent 2px, rgba(0, 0, 0, .3) 3px);
+    background-image: -moz-repeating-linear-gradient(135deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3) 1px, transparent 2px, transparent 2px, rgba(0, 0, 0, .3) 3px);
+    background-image: -o-repeating-linear-gradient(135deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3) 1px, transparent 2px, transparent 2px, rgba(0, 0, 0, .3) 3px);
+    background-image: repeating-linear-gradient(135deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3) 1px, transparent 2px, transparent 2px, rgba(0, 0, 0, .3) 3px);
+    -webkit-background-size: 4px 4px;
+    -moz-background-size: 4px 4px;
+    background-size: 4px 4px;
+}
+
+.loading:after {
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: bottom;
+    -webkit-animation: ellipsis steps(4, end)1500ms infinite;
+    animation: ellipsis steps(4, end) 1500ms infinite;
+    content: "\2026";
+    /* ascii code for the ellipsis character */
+    width: 0px;
+}
+
+@keyframes ellipsis {
+    to {
+        width: 1.25em;
+    }
+}
+
+@-webkit-keyframes ellipsis {
+    to {
+        width: 1.25em;
+    }
+}
+
+
+/* Contact page icons */
+
+.contact-icons {
+    text-align: center;
+    color: white;
+}
+
+.contact-icons .fa {
+    margin: 1em 0.5em 0.5em;
+    text-decoration: none;
+}
+
+.contact-icons .fa:hover {
+    -webkit-animation: trip-balls 3s infinite;
+    -moz-animation: trip-balls 3s infinite;
+    animation: trip-balls 3s infinite;
+}
+
+@-webkit-keyframes trip-balls {
+    0% {
+        -webkit-filter: hue-rotate(0deg) saturate(100%);
+    }
+    25% {
+        -webkit-filter: hue-rotate(90deg) saturate(400%);
+    }
+    50% {
+        -webkit-filter: hue-rotate(180deg) saturate(400%);
+    }
+    75% {
+        -webkit-filter: hue-rotate(270deg) saturate(400%);
+    }
+    100% {
+        -webkit-filter: hue-rotate(360deg) saturate(100%);
+    }
+}
+
+@-moz-keyframes trip-balls {}
+
+@keyframes trip-balls {
+    0% {
+        -webkit-filter: hue-rotate(0deg) saturate(100%);
+        filter: hue-rotate(0deg) saturate(100%);
+    }
+    25% {
+        -webkit-filter: hue-rotate(90deg) saturate(400%);
+        filter: hue-rotate(90deg) saturate(400%);
+    }
+    50% {
+        -webkit-filter: hue-rotate(180deg) saturate(400%);
+        filter: hue-rotate(180deg) saturate(400%);
+    }
+    75% {
+        -webkit-filter: hue-rotate(270deg) saturate(400%);
+        filter: hue-rotate(270deg) saturate(400%);
+    }
+    100% {
+        -webkit-filter: hue-rotate(360deg) saturate(100%);
+        filter: hue-rotate(360deg) saturate(100%);
+    }
+}
+
+
+/* -- Responsive Styles (Media Queries) ------------------------------------- */
+
+
+/*
+Hides the menu at `48em`, but modify this based on your app's needs.
+*/
+
+@media (min-width: 36em) {
+    .header,
+    .content {
+        padding-left: 2em;
+        padding-right: 2em;
+    }
+    #layout {
+        padding-left: 150px;
+        /* left col width "#menu" */
+        left: 0;
+    }
+    #menu {
+        left: 150px;
+    }
+    .menu-link {
+        position: fixed;
+        left: 150px;
+        display: none;
+    }
+    #layout.active .menu-link {
+        left: 150px;
+    }
+}
+
+@media (max-width: 48em) {
+    /* Only apply this when the window is small. Otherwise, the following
+    case results in extra padding on the left:
+        * Make the window small.
+        * Tap the menu to trigger the active state.
+        * Make the window large again.
+    */
+    #layout.active {
+        position: relative;
+        left: 150px;
+    }
+    body {
+        background: initial;
+    }
+    #main {
+        all: initial;
+    }
+    #menu {
+        box-shadow: initial;
+    }
+    .titlebar {
+        margin: 0 auto;
+    }
+    .content {
+        font-size: 17px;
+    }
+    @media (max-width: 36em) {
+        #main .header img {
+            min-width: 6em;
+            float: none;
+            margin: auto;
+        }
+        .titlebar {
+            display: none;
+        }
+        .header {
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 1.5em;
+        }
+        .content {
+            font-size: 17px;
+        }
+    }
+}
+
+
+
+body::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+body::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+/*body::-webkit-scrollbar-thumb
+{
+    background-color: #153c40;
+	background-image: -webkit-repeating-linear-gradient(135deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3) 1px, transparent 2px, transparent 2px, rgba(0, 0, 0, .3) 3px);
+    background-image: -moz-repeating-linear-gradient(135deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3) 1px, transparent 2px, transparent 2px, rgba(0, 0, 0, .3) 3px);
+    background-image: -o-repeating-linear-gradient(135deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3) 1px, transparent 2px, transparent 2px, rgba(0, 0, 0, .3) 3px);
+    background-image: repeating-linear-gradient(135deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3) 1px, transparent 2px, transparent 2px, rgba(0, 0, 0, .3) 3px);
+    -webkit-background-size: 4px 4px;
+    -moz-background-size: 4px 4px;
+    background-size: 4px 4px;
+}*/
