@@ -100,20 +100,16 @@ var copyEmail = document.querySelector('.fa-files-o');
 });
 
 
-//This is the "Offline copy of pages" service worker
-
-//Add this below content to your HTML page, or add the js file to your page at the very top to register sercie worker
+// This is the "Offline copy of pages" service worker
+// Add this below content to your HTML page, or add the js file to your page at the very top to register sercie worker
 if (navigator.serviceWorker.controller) {
-  console.log('active service worker found, no need to register')
+  //console.log('active service worker found, no need to register')
 } else {
   //Register the ServiceWorker
   navigator.serviceWorker.register('./sw.js', {
     scope: './'
   }).then(function(reg) {
-    console.log('Service worker has been registered for scope:'+ reg.scope);
+    //console.log('Service worker has been registered for scope:'+ reg.scope);
   });
 }
 
-navigator.serviceWorker && navigator.serviceWorker.register('./sw.js').then(function(registration) {
-  console.log('Excellent, registered with scope: ', registration.scope);
-});
