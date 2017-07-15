@@ -25,7 +25,6 @@ function updateProgressBar(elementClass, timePassed) {
 var _MS_PER_HOURS = 1000 * 60 * 60,
     currDate = new Date(); 
 
-
 function dateDiff(a, b) {
     //dateDiff in Hours
     // Discard the time and time-zone information. UTC time never observes daylight saving time
@@ -36,12 +35,21 @@ function dateDiff(a, b) {
 
 function passedTime(dateSt, dateFin) {
     var allHours = dateDiff(dateSt, dateFin);       //amount of hours needed for learning 1 subject
+
     var timePassed = dateDiff(dateSt, currDate);
 
     var timePercentage = timePassed * 100 / allHours;
-    
+
     return timePercentage;
 }
+
+
+//-------------------SQL------------------
+
+var sqlStart = new Date(2017, 05, 12),
+    sqlEnd = new Date(2017, 06, 13);
+
+updateProgressBar("sqlBar", passedTime(sqlStart, sqlEnd))
 
 
 // ------------------JS-------------------
@@ -50,19 +58,10 @@ var jsStart = new Date(2017, 05, 01),
     jsEnd = new Date(2017, 08, 02);
 
 updateProgressBar("jsBar", passedTime(jsStart, jsEnd))
-console.log(passedTime(jsStart, jsEnd))
-//-------------------SQL------------------
-
-var sqlStart = new Date(2017, 05, 12),
-    sqlEnd = new Date(2017, 06, 13);
-
-updateProgressBar("sqlBar", passedTime(sqlStart, sqlEnd))
-console.log(passedTime(sqlStart, sqlEnd))
 
 //----------------Django-------------
 
-var djangoStart = new Date(2017, 07, 01),
-    djangoEnd = new Date(2017, 08, 02);
+var djangoStart = new Date(2017, 06, 01),
+    djangoEnd = new Date(2017, 07, 15);
 
 updateProgressBar("djangoBar", passedTime(djangoStart, djangoEnd))
-console.log(passedTime(djangoStart, djangoEnd))
