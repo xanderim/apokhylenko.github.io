@@ -50,10 +50,19 @@ var jsStart = new Date(2017, 05, 01),
     jsEnd = new Date(2017, 08, 02);
 
 updateProgressBar("jsBar", passedTime(jsStart, jsEnd))
-
+console.log(passedTime(jsStart, jsEnd))
 //-------------------SQL------------------
 
 var sqlStart = new Date(2017, 05, 12),
     sqlEnd = new Date(2017, 06, 13);
 
 updateProgressBar("sqlBar", passedTime(sqlStart, sqlEnd))
+console.log(passedTime(sqlStart, sqlEnd))
+
+//----------------Django-------------
+
+var djangoStart = new Date(2017, 07, 01),
+    djangoEnd = new Date(2017, 08, 02);
+
+updateProgressBar("djangoBar", passedTime(djangoStart, djangoEnd))
+console.log(passedTime(djangoStart, djangoEnd))
